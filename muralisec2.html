@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS & CEH Professional Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        /* Left Profile Section - Using F-pattern layout principles */
+        .profile-section {
+            flex: 0 0 35%;
+            background: linear-gradient(to bottom, #0f2d4e, #1a4a7a);
+            color: white;
+            padding: 40px 30px;
+            position: relative;
+        }
+        
+        /* Psychological principle: Use warm colors for profile (trust) */
+        .profile-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .profile-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .profile-title {
+            font-size: 18px;
+            color: #64b5f6;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        
+        /* Chunking information for better recall */
+        .info-chunk {
+            margin-bottom: 30px;
+        }
+        
+        .info-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 8px;
+        }
+        
+        .info-title i {
+            margin-right: 10px;
+            color: #64b5f6;
+        }
+        
+        .info-content {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+        
+        .skill-item {
+            margin-bottom: 12px;
+        }
+        
+        .skill-name {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background-color: #64b5f6;
+            border-radius: 4px;
+        }
+        
+        /* Right Options Section - Using visual hierarchy */
+        .options-section {
+            flex: 0 0 65%;
+            padding: 40px;
+            background-color: #fff;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0f2d4e;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f4f8;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 12px;
+            color: #1a73e8;
+        }
+        
+        /* Psychological principle: Group related options (chunking) */
+        .option-group {
+            margin-bottom: 40px;
+        }
+        
+        .option-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        /* Cards for options - using consistency principle */
+        .option-card {
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #1a73e8;
+            cursor: pointer;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(26, 115, 232, 0.15);
+        }
+        
+        .option-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .option-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background-color: #e8f0fe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #1a73e8;
+            font-size: 22px;
+        }
+        
+        .option-card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0f2d4e;
+        }
+        
+        .option-card-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* Status indicators - using color psychology */
+        .status-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        .status-active {
+            background-color: #e6f4ea;
+            color: #137333;
+        }
+        
+        .status-pending {
+            background-color: #fef7e0;
+            color: #b06000;
+        }
+        
+        /* Progress visualization - using the progress principle */
+        .progress-container {
+            margin-top: 25px;
+            background-color: #f0f4f8;
+            border-radius: 8px;
+            padding: 25px;
+        }
+        
+        .progress-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #0f2d4e;
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background-color: #e0e6ed;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #1a73e8, #64b5f6);
+            border-radius: 6px;
+            width: 75%; /* This would be dynamic */
+        }
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .profile-section, .options-section {
+                flex: 1;
+                width: 100%;
+            }
+            
+            .profile-section {
+                padding: 30px 20px;
+            }
+            
+            .options-section {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .option-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Profile Section -->
+        <section class="profile-section">
+            <div class="profile-header">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Profile Picture" class="profile-image">
+                <h1 class="profile-name">Alex Morgan</h1>
+                <p class="profile-title">AWS Solutions Architect & CEH Professional</p>
+            </div>
+            
+            <!-- Personal Info Chunk -->
+            <div class="info-chunk">
+                <h3 class="info-title"><i class="fas fa-user"></i> Personal Info</h3>
+                <div class="info-content">
+                    <p><strong>Experience:</strong> 8+ Years</p>
+                    <p><strong>Location:</strong> San Francisco, CA</p>
+                    <p><strong>Availability:</strong> Full-time</p>
+                    <p><strong>Security Clearance:</strong> Level II</p>
+                </div>
+            </div>
+            
+            <!-- Skills Chunk -->
+            <div class="info-chunk">
+                <h3 class="info-title"><i class="fas fa-code"></i> Technical Skills</h3>
+                <div class="info-content">
+                    <div class="skill-item">
+                        <span class="skill-name">AWS Architecture</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Cloud Security</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Ethical Hacking</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">DevOps & CI/CD</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Certifications Chunk -->
+            <div class="info-chunk">
+                <h3 class="info-title"><i class="fas fa-certificate"></i> Certifications</h3>
+                <div class="info-content">
+                    <p>• AWS Solutions Architect Pro</p>
+                    <p>• Certified Ethical Hacker (CEH)</p>
+                    <p>• AWS Security Specialty</p>
+                    <p>• CompTIA Security+</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Right Options Section -->
+        <section class="options-section">
+            <h2 class="section-title"><i class="fas fa-cloud"></i> AWS Deployment Options</h2>
+            
+            <!-- Deployment Options Group -->
+            <div class="option-group">
+                <div class="option-cards">
+                    <div class="option-card">
+                        <div class="option-card-header">
+                            <div class="option-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h3 class="option-card-title">EC2 Instances</h3>
+                        </div>
+                        <p class="option-card-desc">Configure scalable virtual servers with optimized security groups and IAM roles.</p>
+                        <span class="status-badge status-active">ACTIVE</span>
+                    </div>
+                    
+                    <div class="option-card">
+                        <div class="option-card-header">
+                            <div class="option-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3 class="option-card-title">RDS Databases</h3>
+                        </div>
+                        <p class="option-card-desc">Set up managed relational databases with encryption and automated backups.</p>
+                        <span class="status-badge status-pending">PENDING</span>
+                    </div>
+                    
+                    <div class="option-card">
+                        <div class="option-card-header">
+                            <div class="option-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3 class="option-card-title">Security Hub</h3>
+                        </div>
+                        <p class="option-card-desc">Centralized security service for compliance checks and threat detection.</p>
+                        <span class="status-badge status-active">ACTIVE</span>
+                    </div>
+                    
+                    <div class="option-card">
+                        <div class="option-card-header">
+                            <div class="option-icon">
+                                <i class="fas fa-code-branch"></i>
+                            </div>
+                            <h3 class="option-card-title">CI/CD Pipeline</h3>
+                        </div>
+                        <p class="option-card-desc">Automated deployment pipeline with CodeBuild, CodeDeploy, and CodePipeline.</p>
+                        <span class="status-badge status-active">ACTIVE</span>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 class="section-title"><i class="fas fa-user-secret"></i> CEH Security Options</h2>
+            
+            <!-- Security Options Group -->
+            <div class="option-group">
+                <div class="option-cards">
+                    <div class="option-card">
+                        <div class="option-card-header">
+                            <div class="option-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3 class="option-card-title">Vulnerability Scan</h3>
+                        </div>
+                        <p class="option-card-desc">Regular automated scans for security vulnerabilities and misconfigurations.</p>
+                    </div>
+                    
+                    <div class="option-card">
+                        <div class="option-card-header">
+                            <div class="option-icon">
+                                <i class="fas fa-bug"></i>
+                            </div>
+                            <h3 class="option-card-title">Penetration Testing</h3>
+                        </div>
+                        <p class="option-card-desc">Controlled attack simulations to identify security weaknesses.</p>
+                    </div>
+                    
+                    <div class="option-card">
+                        <div class="option-card-header">
+                            <div class="option-icon">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <h3 class="option-card-title">Compliance Audit</h3>
+                        </div>
+                        <p class="option-card-desc">Ensure compliance with industry standards (GDPR, HIPAA, PCI-DSS).</p>
+                    </div>
+                    
+                    <div class="option-card">
+                        <div class="option-card-header">
+                            <div class="option-icon">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <h3 class="option-card-title">Access Control</h3>
+                        </div>
+                        <p class="option-card-desc">Implement least privilege access and multi-factor authentication.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Progress Visualization -->
+            <div class="progress-container">
+                <h3 class="progress-title">Current Project Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="progress-text">
+                    <span>AWS Migration Project</span>
+                    <span>75% Complete</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Interactive elements for better UX
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove active class from all cards
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.style.borderLeftColor = '#1a73e8';
+                });
+                
+                // Add active effect to clicked card
+                this.style.borderLeftColor = '#0f2d4e';
+                
+                // Get card title for demonstration
+                const cardTitle = this.querySelector('.option-card-title').textContent;
+                console.log(`Selected option: ${cardTitle}`);
+            });
+        });
+        
+        // Simulate progress animation
+        window.addEventListener('load', function() {
+            const progressFill = document.querySelector('.progress-fill');
+            let width = 0;
+            const targetWidth = 75;
+            const interval = setInterval(() => {
+                if (width >= targetWidth) {
+                    clearInterval(interval);
+                    return;
+                }
+                width++;
+                progressFill.style.width = width + '%';
+                document.querySelector('.progress-text span:last-child').textContent = width + '% Complete';
+            }, 20);
+        });
+    </script>
+</body>
+</html>
